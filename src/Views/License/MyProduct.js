@@ -33,7 +33,7 @@ const MyLicense = () => {
   const { role, accountid } = useContext(AuthContext);
   const { t, openDialog, closeDialog, authedApi, openSnackbar } = useContext(GlobalContext);
   const [rows, setRows] = React.useState([]);
-  
+
   // console.log(role)
   const getMyAccount = useCallback(async () => {
     const { products } = await authedApi.getAccountInfo({ accountid })
@@ -105,6 +105,7 @@ const MyLicense = () => {
         rows={rows}
         columns={[
           { key: 'name', label: t('name') },
+          { key: 'partnumber', label: t('partnumber') },
           { key: 'total_sales', label: t('total-sales') },
           { key: 'total_trial', label: t('total-trial') },
           { key: 'number', label: t('thing-amount', { thing: t("license") }) },

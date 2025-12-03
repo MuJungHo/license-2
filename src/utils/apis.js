@@ -92,6 +92,11 @@ export const api = (token, logout, openCatchErrorSnackbar) => {
     postAddDepartment: ({ data, ...rest }) => promise_(instance.post('/db/department/add', { ...data }, { params: { sign, timestamp, ...rest } })),
     postEditDepartment: ({ data, ...rest }) => promise_(instance.post('/db/department/edit', { ...data }, { params: { sign, timestamp, ...rest } })),
 
+    getSEMList: ({ data, ...rest }) => promise_(instance.post('/db/sem/list', { ...data }, { params: { sign, timestamp, ...rest } })),
+    getSEM: ({ ...rest }) => promise_(instance.get('/db/sem/get', { params: { timestamp, sign, ...rest } })),
+    putDispatchSEM: ({ data, ...rest }) => promise_(instance.put('/db/sem/dispatch', data, { params: { sign, timestamp, ...rest } })),
+    putAcceptSEM: ({ data, ...rest }) => promise_(instance.put('/db/sem/accept', data, { params: { sign, timestamp, ...rest } })),
+    putRejectSEM: ({ data, ...rest }) => promise_(instance.put('/db/sem/reject', data, { params: { sign, timestamp, ...rest } })),
 
   }
 }

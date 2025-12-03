@@ -233,6 +233,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default ({
   dense = false,
+  toolbar = true,
   checkable = true,
   filterable = true,
   dateRangePicker = false,
@@ -313,7 +314,7 @@ export default ({
   return (
     <div className={classes.root}>
       <CustomProvider theme={theme}>
-        <EnhancedTableToolbar
+        {toolbar && <EnhancedTableToolbar
           title={title}
           filterable={filterable}
           numSelected={selected.length}
@@ -324,7 +325,7 @@ export default ({
           onDateRangeChange={onDateRangeChange}
           onSearchClick={onSearchClick}
           onClearClick={onClearClick}
-        />
+        />}
         <TableContainer>
           <Table
             className={classes.table}
